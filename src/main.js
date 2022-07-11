@@ -184,7 +184,7 @@ function showCharacter(element){
   for(let i=0 ; i< element.length; i++){
     characterCards.innerHTML+=`<div class='card'>
     <ul>
-    <img src='${element[i].img}'>
+    <img src='${element[i].img}' width='200px'>
     <p>${element[i].name}</p>
     <p>Edad:${element[i].age}</p>
     <p>Género:${element[i].gender}</p>
