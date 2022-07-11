@@ -173,58 +173,65 @@ let characterCards=document.getElementById("characterCards")
 let sortCharacter=document.getElementById("sortCharacter")
 let gender=document.getElementById('gender')
 let specie=document.getElementById('specie')
-// let animaciones = document.getElementById('animaciones')
-// let locaciones = document.getElementById('locaciones')
+let menu_personajes = document.getElementById('menu_personajes')
 
+// let animaciones = document.getElementById('animaciones')
+// let personajes = document.getElementById('personajes')
+// let locaciones = document.getElementById('locaciones')
 
 function showCharacter(element){
   characterCards.innerHTML= "";
   for(let i=0 ; i< element.length; i++){
     characterCards.innerHTML+=`<div class='card'>
     <ul>
-    <li><img src='${element[i].img}'></li>
-    <li>${element[i].name}</li>
-    <li>${element[i].age}</li>
-    <li>${element[i].gender}</li>
-    <li>${element[i].specie}</li>
+    <img src='${element[i].img}'>
+    <p>${element[i].name}</p>
+    <p>Edad:${element[i].age}</p>
+    <p>Género:${element[i].gender}</p>
+    <p>Especie:${element[i].specie}</p>
     </ul>
     </div>`;
   }
 }
 
-const personajes = obtenerPersonajes(films)
+const dataPersonajes = obtenerPersonajes(films)
 
-function showSection(section1,section2){
+showCharacter(dataPersonajes)
+
+function showSection(section1,section2,section3,section4,data){
   section1.style.display ='none'
   section2.style.display ='none'
+  section3.style.display = 'none'
+  section4.style.display ='block'
+  showCharacter(data)
 }
 
-
 /// PERSONAJES EN PANTALLA ///
-// showSection(animaciones,locaciones)
-showCharacter(personajes)
+
+menu_personajes.addEventListener("click",(event)=>{
+  showSection(animaciones,locaciones,reseña,personajes_id,dataPersonajes);
+})
 
 /// PERSONAJES ORDENADOS EN PANTALLA A-Z ///
 sortCharacter.addEventListener("change",(event)=>{
   // const selectedSort = event.target.value;
   // const filteredSort = ordenarPersonajes(personajes);
-  ordenarPersonajes(personajes);
-  showCharacter(personajes);
+  ordenarPersonajes(dataPersonajes);
+  showCharacter(dataPersonajes);
 });
 
 /// PERSONAJES FILTRADOS EN PANTALLA ///
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
-  const filteredGender = filtrarGenero(personajes, selectedGender);
+  const filteredGender = filtrarGenero(dataPersonajes, selectedGender);
   showCharacter(filteredGender);
 });
 
 specie.addEventListener("change",(event)=>{
   const selectedSpecie = event.target.value;
-  const filteredSpecie = filtrarEspecie(personajes, selectedSpecie);
+  const filteredSpecie = filtrarEspecie(dataPersonajes, selectedSpecie);
   showCharacter(filteredSpecie);
 });
-
 
 
 
