@@ -4,8 +4,6 @@
 }
 body{
   background-image: url("./images/fondo.jpg");
-  
-  /* background-repeat: space repeat; */
   background-size: contain;
   width: 100%;
 }
@@ -250,10 +248,10 @@ select{
   background-color: #be2e2e;
 } */
 
-.characterTitle{
+/* .characterTitle{
   font-size: 32px;
   text-align: center;
-}
+} */
 
 .characterFilterSearch{
   background-color: #be2e2e;
@@ -269,6 +267,15 @@ select{
   width:280px ;
 }
 
+.characterCount{
+  font-size: 32px;
+  text-align: center; 
+  margin: 22px 0px 22px 0px;
+  background-color: rgba(247, 246, 243, 0.5);
+  box-shadow: 4px 10px 10px;
+  border-radius: 15px;
+}
+
 .characterMainCards{
   display: flex;
   flex-wrap: wrap;
@@ -282,7 +289,7 @@ section.character div.card{
   justify-content: flex-end;
   align-items: flex-start;
   padding: 16px; 
-  margin: 22px 15px 22px 0px;
+  margin: 22px 15px 22px 0px; 
   background-color: rgba(247, 246, 243, 0.5);
   box-shadow: 4px 10px 10px;
   border-radius: 15px;

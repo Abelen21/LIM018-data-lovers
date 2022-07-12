@@ -182,19 +182,21 @@ btnAnimaciones.addEventListener("click",function(){
 
 
 
-///-------PERSONAJES-------///
-
-let characterCards=document.getElementById("characterCards")
-let sortCharacter=document.getElementById("sortCharacter")
-let gender=document.getElementById('gender')
-let specie=document.getElementById('specie')
-let menu_personajes = document.getElementById('menu_personajes')
+///// *************PERSONAJES********************* ///
 
 // let animaciones = document.getElementById('animaciones')
 // let personajes = document.getElementById('personajes')
 // let locaciones = document.getElementById('locaciones')
 
+let characterCards=document.getElementById("characterCards")
+let charsCountDiv=document.getElementById("charsCountDiv")
+let sortCharacter=document.getElementById("sortCharacter")
+let gender=document.getElementById('gender')
+let specie=document.getElementById('specie')
+let menu_personajes = document.getElementById('menu_personajes')
+
 function showCharacter(element){
+  charsCountDiv.innerHTML = "Aquí hay un total de " + element.length + " personajes.";
   characterCards.innerHTML= "";
   for(let i=0 ; i< element.length; i++){
     characterCards.innerHTML+=`<div class='card'>
@@ -207,7 +209,6 @@ function showCharacter(element){
     </ul>
     </div>`;
   }
-  // document.getElementById("charsCountDiv").innerHTML = "Aquí hay un total de " + element.length + " personajes.";
 }
 
 const dataPersonajes = obtenerPersonajes(films)
@@ -248,6 +249,16 @@ specie.addEventListener("change",(event)=>{
   const filteredSpecie = filtrarEspecie(dataPersonajes, selectedSpecie);
   showCharacter(filteredSpecie);
 });
+
+
+
+///////LOCACIONES///////////////
+
+let locationsCards=document.getElementById("locationsCards")
+let sortLocation=document.getElementById("sortLocation")
+let terrain=document.getElementById("terrain")
+let menu_locaciones = document.getElementById('menu_locaciones')
+
 
 
 
