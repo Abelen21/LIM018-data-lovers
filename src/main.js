@@ -213,8 +213,6 @@ function showCharacter(element){
 
 const dataPersonajes = obtenerPersonajes(films)
 
-showCharacter(dataPersonajes)
-
 function showSection(section1,section2,section3,section4,data){
   section1.style.display ='none'
   section2.style.display ='none'
