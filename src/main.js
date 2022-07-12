@@ -1,6 +1,6 @@
 import data from './data/ghibli/ghibli.js';
 /// PERSONAJES DE LAS PELICULAS /// 
-import {ordenarAZ,filterDirector,filtering,obtenerPersonajes,ordenarPersonajes,filtrarGenero,filtrarEspecie} from './data.js';
+import {ordenarAZ,filterDirector,filtering,obtenerPersonajes,ordenarPersonajes,filtrarGenero,filtrarEspecie, filtrarDoble} from './data.js';
 
 
 // let itemAZ = document.getElementById("itemAZ");
@@ -235,18 +235,28 @@ sortCharacter.addEventListener("change",(event)=>{
   showCharacter(dataPersonajes);
 });
 
+
+let filters = {
+  gender :"" , 
+  specie :""
+}
+
 /// PERSONAJES FILTRADOS EN PANTALLA ///
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
-  const filteredGender = filtrarGenero(dataPersonajes, selectedGender);
+  filters.gender = selectedGender
+  const filteredGender = filtrarDoble(dataPersonajes, filters.specie,filters.gender);
   showCharacter(filteredGender);
 });
 
 specie.addEventListener("change",(event)=>{
   const selectedSpecie = event.target.value;
+  filters.specie = selectedSpecie
   const filteredSpecie = filtrarEspecie(dataPersonajes, selectedSpecie);
   showCharacter(filteredSpecie);
 });
+
+
 
 
 
