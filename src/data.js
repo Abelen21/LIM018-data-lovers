@@ -29,6 +29,7 @@ export const filterDirector = (films,nameDirector) => {
 
 
 
+
 // ---- FUNCIONES PERSONAJES ------- //
 
 export const obtenerPersonajes = (films) => {
@@ -40,6 +41,11 @@ export const obtenerPersonajes = (films) => {
   console.log('personajes',personajes)
   return personajes;
 }
+
+export const quantity = (personajes) => {
+  const total = personajes.length;
+  return total;
+};
 
 export const ordenarPersonajes = (personajes) => {
   personajes.sort((a,b) =>{

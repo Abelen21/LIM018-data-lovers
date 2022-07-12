@@ -158,9 +158,24 @@ btnAnimaciones.addEventListener("click",function(){
 
 
 
+// document.getElementById("charsCountDiv").innerHTML = "Aquí hay un total de " + personajes.length + " personajes.";
 
+// gender.addEventListener("change",(event)=>{
+//   const selectedGender = event.target.value;
+//     if (selectedGender === "") {
+//         document.getElementById("charsCountDiv").innerHTML = "There is a total of " + personajes.length + " characters.";
+//         // showCharacter(personajes);
+//     } else {
+//         const filtered = filtering(personajes, "gender", selectedGender);
+//         showCharacter(filtered);
 
-
+//         if (quantity(filtered) <= 1) {
+//             document.getElementById("charsCountDiv").innerHTML = "Aquí hay " + quantity(filtered) + " " + selectedGender + " personajes de un total de " + personajes.length + " personajes.";
+//         } else {
+//             document.getElementById("charsCountDiv").innerHTML = "Aquí hay " + quantity(filtered) + " " + selectedGender + " personajes de un total de " + personajes.length + " personajes.";
+//         }
+//     }
+// });
 
 
 
@@ -192,6 +207,7 @@ function showCharacter(element){
     </ul>
     </div>`;
   }
+  // document.getElementById("charsCountDiv").innerHTML = "Aquí hay un total de " + element.length + " personajes.";
 }
 
 const dataPersonajes = obtenerPersonajes(films)
