@@ -1,7 +1,7 @@
 import data from './data/ghibli/ghibli.js';
 /// PERSONAJES DE LAS PELICULAS /// 
 import {ordenarAZ,filterDirector,filtering,
-  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,ordenarPersonajes} from './data.js';
+  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,ordenarPersonajes, filtrarDobleLocaciones} from './data.js';
 
 
 // let itemAZ = document.getElementById("itemAZ");
@@ -199,8 +199,16 @@ let menu_personajes = document.getElementById('menu_personajes')
 let locationsCards=document.getElementById("locationsCards")
 let locationsCountDiv=document.getElementById("locationsCountDiv")
 let sortLocation=document.getElementById("sortLocation")
+let climate=document.getElementById("climate")
 let terrain=document.getElementById("terrain")
 let menu_locaciones = document.getElementById('menu_locaciones')
+
+let filters = {
+  gender :"" , 
+  specie :"",
+  climate:"",
+  terrain:""
+}
 
 function showCharacter(element,tipo){
   if(tipo=='personajes'){
@@ -257,13 +265,8 @@ sortCharacter.addEventListener("change",(event)=>{
   showCharacter(dataPersonajes,tipo);
 });
 
-
-let filters = {
-  gender :"" , 
-  specie :""
-}
-
 /// PERSONAJES FILTRADOS EN PANTALLA ///
+
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
@@ -299,7 +302,7 @@ menu_locaciones.addEventListener("click",(event)=>{
 
 /// LOCACIONES ORDENADAS EN PANTALLA ///
 
-sortCharacter.addEventListener("change",(event)=>{
+sortLocation.addEventListener("change",(event)=>{
   // const selectedSort = event.target.value;
   // const filteredSort = ordenarPersonajes(personajes);
   const tipo = 'locaciones'
@@ -308,8 +311,25 @@ sortCharacter.addEventListener("change",(event)=>{
   showCharacter(dataPersonajes,tipo);
 });
 
-
 /// LOCACIONES FILTRADAS EN PANTALLA ///
+
+climate.addEventListener("change",(event)=>{
+  const selectedClimate = event.target.value;
+  filters.climate = selectedClimate
+  const tipo = 'locaciones'
+  const dataPersonajes = obtenerDataTipo(films,tipo)
+  const filteredClimate = filtrarDobleLocaciones(dataPersonajes, filters);
+  showCharacter(filteredClimate,tipo);
+});
+
+terrain.addEventListener("change",(event)=>{
+  const selectedTerrain = event.target.value;
+  filters.terrain = selectedTerrain
+  const tipo = 'locaciones'
+  const dataPersonajes = obtenerDataTipo(films,tipo)
+  const filteredTerrain = filtrarDobleLocaciones(dataPersonajes, filters);
+  showCharacter(filteredTerrain,tipo);
+});
 
 
 

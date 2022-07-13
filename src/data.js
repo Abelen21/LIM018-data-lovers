@@ -98,6 +98,18 @@ export const filtrarGenero = (personajes,genero) => {
   return personajes_filtrado
 }
 
+//// Funciones Locaciones /////
+export const filtrarDobleLocaciones = (personajes,filtros) => {
+  console.log('filtros', filtros)
+  
+  const personajes_filtrado = personajes.filter(personajes => 
+    ((personajes.climate == filtros.climate) && 
+    (personajes.terrain == filtros.terrain)));
+  
+  console.log('personajes filtrados',personajes_filtrado)
+  return personajes_filtrado
+}
+
 
 
 
