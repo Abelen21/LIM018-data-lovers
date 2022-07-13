@@ -32,15 +32,30 @@ export const filterDirector = (films,nameDirector) => {
 
 // ---- FUNCIONES PERSONAJES ------- //
 
-export const obtenerPersonajes = (films) => {
+// export const obtenerPersonajes = (films) => {
+//   let personajes = [];
+//   console.log('peliculas',films)
+//   for (let i = 0 ; i< films.length ; i++){
+//     personajes = personajes.concat(films[i].people)
+//   }
+//   console.log('personajes',personajes)
+//   return personajes;
+// }
+
+export const obtenerDataTipo = (films,tipo) => {
   let personajes = [];
   console.log('peliculas',films)
   for (let i = 0 ; i< films.length ; i++){
-    personajes = personajes.concat(films[i].people)
+    if(tipo=='personajes'){
+      personajes = personajes.concat(films[i].people)
+    }else{
+      personajes = personajes.concat(films[i].locations)
+    }
   }
   console.log('personajes',personajes)
   return personajes;
 }
+
 
 export const quantity = (personajes) => {
   const total = personajes.length;

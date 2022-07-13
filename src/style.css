@@ -260,6 +260,7 @@ select{
 
 .characterCount{
   font-size: 32px;
+  font-weight: 600;
   text-align: center; 
   margin: 22px 0px 22px 0px;
   background-color: rgba(247, 246, 243, 0.5);
@@ -305,9 +306,69 @@ section.character div.card ul img{
 
 /* ----LOCACIONES---- */
 
-section.location{
-  background-color: #4177ae;
+.location{
+  margin: 64px 100px;
 }
+
+.location_filterSearch{
+  background-color: #be2e2e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.select{
+  background-color: #f67921;
+  border: solid hwb(0 0% 100%);
+  height: 30px;
+  width:280px ;
+}
+
+.locationsCount{
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center; 
+  margin: 22px 0px 22px 0px;
+  background-color: rgba(247, 246, 243, 0.5);
+  box-shadow: 4px 10px 10px;
+  border-radius: 15px;
+}
+
+.mainCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}   
+
+section.location div.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 16px; 
+  margin: 22px 15px 22px 0px; 
+  background-color: rgba(247, 246, 243, 0.5);
+  box-shadow: 4px 10px 10px;
+  border-radius: 15px;
+}
+
+section.location div.card ul{
+  margin: 0;
+  padding: 0;
+  font-weight: 600; 
+  font-size: 16px;
+  text-align: center;
+}
+
+section.location div.card ul img{
+  border-radius: 15px;
+}
+
+.location{
+  display: none;
+}
+
 
 
 
