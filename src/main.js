@@ -245,14 +245,14 @@ let filters = {
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
-  const filteredGender = filtrarDoble(dataPersonajes, filters.specie,filters.gender);
+  const filteredGender = filtrarDoble(dataPersonajes, filters);
   showCharacter(filteredGender);
 });
 
 specie.addEventListener("change",(event)=>{
   const selectedSpecie = event.target.value;
   filters.specie = selectedSpecie
-  const filteredSpecie = filtrarEspecie(dataPersonajes, selectedSpecie);
+  const filteredSpecie = filtrarDoble(dataPersonajes, filters);
   showCharacter(filteredSpecie);
 });
 

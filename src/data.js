@@ -62,14 +62,17 @@ export const ordenarPersonajes = (personajes) => {
 
 export const filtrarEspecie = (personajes,especie) => {
   const personajes_filtrado = personajes.filter(personajes => personajes.specie == especie);
-  // personajes_filtrado = personajes_filtrado.filter(personajes_filtrado => personajes_filtrado.gender == genero);
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado
 }
 
-export const filtrarDoble = (personajes,especie,genero) => {
-  const personajes_filtrado = personajes.filter(personajes => ((personajes.specie == especie) && (personajes.gender == genero)));
-  // personajes_filtrado = personajes_filtrado.filter(personajes_filtrado => personajes_filtrado.gender == genero);
+export const filtrarDoble = (personajes,filtros) => {
+  console.log('filtros', filtros)
+  
+  const personajes_filtrado = personajes.filter(personajes => 
+    ((personajes.gender == filtros.gender) && 
+    (personajes.specie == filtros.specie)));
+  
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado
 }
