@@ -10,13 +10,14 @@ const films = data.films
 // ordenarAZ(films)
 // console.log(films)
 
-
+const filmsCountDiv = document.getElementById("filmsCountDiv")
 const containerA = document.getElementById("containerA")
 containerA.style.display="none"
 
 const mainImagen = document.querySelector(".mainImagen")
 
 function showFilms(element){
+  filmsCountDiv.innerHTML = "Aquí hay un total de " + element.length + " peliculas.";
   mainImagen.innerHTML= "";
   for (const film of element){
     const elementIndex = `

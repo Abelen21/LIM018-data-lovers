@@ -56,12 +56,6 @@ export const obtenerDataTipo = (films,tipo) => {
   return personajes;
 }
 
-
-export const quantity = (personajes) => {
-  const total = personajes.length;
-  return total;
-};
-
 export const ordenarPersonajes = (personajes) => {
   personajes.sort((a,b) =>{
     if(a.name < b.name){
