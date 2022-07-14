@@ -45,6 +45,17 @@ a{
 .container{
   display: flex;
 }
+
+.filmsCountDiv{
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center; 
+  margin: 22px 0px 22px 0px;
+  background-color: rgba(247, 246, 243, 0.5);
+  box-shadow: 4px 10px 10px;
+  border-radius: 15px;
+}
+
 #imagen{
   display: flex;
   flex-direction: column;
