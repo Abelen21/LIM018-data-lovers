@@ -69,12 +69,6 @@ export const ordenarPersonajes = (personajes) => {
   console.log('personajes ordenados',personajes)
 }
 
-export const filtrarEspecie = (personajes,especie) => {
-  const personajes_filtrado = personajes.filter(personajes => personajes.specie == especie);
-  console.log('personajes filtrados',personajes_filtrado)
-  return personajes_filtrado
-}
-
 export const filtrarDoble = (personajes,filtros) => {
   console.log('filtros', filtros)
   
@@ -92,6 +86,19 @@ export const filtrarGenero = (personajes,genero) => {
   return personajes_filtrado
 }
 
+export const filtrarEspecie = (personajes,especie) => {
+  const personajes_filtrado = personajes.filter(personajes => personajes.specie == especie);
+  console.log('personajes filtrados',personajes_filtrado)
+  return personajes_filtrado
+}
+
+export const filtrar = (array,valor,atributo) => {
+  const personajes_filtrado = array.filter(array => array[atributo] == valor);
+  console.log('personajes filtrados',personajes_filtrado)
+  return personajes_filtrado
+}
+
+
 //// Funciones Locaciones /////
 export const filtrarDobleLocaciones = (personajes,filtros) => {
   console.log('filtros', filtros)
@@ -103,6 +110,7 @@ export const filtrarDobleLocaciones = (personajes,filtros) => {
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado
 }
+
 
 
 
