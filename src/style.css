@@ -324,6 +324,7 @@ section.character div.card ul img{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0px 0px 52px 0px;
 }
 
 .select{
@@ -335,7 +336,6 @@ section.character div.card ul img{
   height: 70px;
   width: 300px ;
   padding: 13px 26px;
-  margin: 0px 0px 52px;
 }
 
 .locationsCount{
