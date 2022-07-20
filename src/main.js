@@ -1,8 +1,8 @@
 import data from './data/ghibli/ghibli.js';
 /// PERSONAJES DE LAS PELICULAS /// 
 import {ordenarAZ,filterDirector,filtering,
-  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,filtrar,
-  ordenarPersonajes, filtrarDobleLocaciones} from './data.js';
+  obtenerDataTipo, filtrarDoble,filtrar,
+  ordenarPersonajes} from './data.js';
 
 
 // let itemAZ = document.getElementById("itemAZ");

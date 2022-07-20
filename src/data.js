@@ -69,41 +69,14 @@ export const ordenarPersonajes = (personajes) => {
   console.log('personajes ordenados',personajes)
 }
 
-// export const filtrarDoble = (personajes,filtros) => {
-//   console.log('filtros', filtros)
-  
-//   const personajes_filtrado = personajes.filter(personajes => 
-//     ((personajes.gender == filtros.gender) && 
-//     (personajes.specie == filtros.specie)));
-  
-//   console.log('personajes filtrados',personajes_filtrado)
-//   return personajes_filtrado
-// }
 
-
-export const filtrarGenero = (personajes,genero) => {
-  const personajes_filtrado = personajes.filter(personajes => personajes.gender == genero);
-  console.log('personajes filtrados',personajes_filtrado)
-  return personajes_filtrado
-}
-
-export const filtrarEspecie = (personajes,especie) => {
-  const personajes_filtrado = personajes.filter(personajes => personajes.specie == especie);
-  console.log('personajes filtrados',personajes_filtrado)
-  return personajes_filtrado
-}
-
-// export const filtrar = (array,valor,atributo) => {
-//   const personajes_filtrado = array.filter(array => array[atributo] == valor);
-//   console.log('personajes filtrados',personajes_filtrado)
-//   return personajes_filtrado
-// }
 export const filtrar = (array,valor,atributo) => {
   console.log('valor', valor)
   const personajes_filtrado = array.filter(array => array[atributo] == valor);
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado
 }
+
 
 export const filtrarDoble = (array,valor1,valor2,atributo1,atributo2) => {
   console.log('filtros', valor1)
@@ -114,18 +87,6 @@ export const filtrarDoble = (array,valor1,valor2,atributo1,atributo2) => {
   return personajes_filtrado
 }
 
-
-//// Funciones Locaciones /////
-export const filtrarDobleLocaciones = (personajes,filtros) => {
-  console.log('filtros', filtros)
-  
-  const personajes_filtrado = personajes.filter(personajes => 
-    ((personajes.climate == filtros.climate) && 
-    (personajes.terrain == filtros.terrain)));
-  
-  console.log('personajes filtrados',personajes_filtrado)
-  return personajes_filtrado
-}
 
 
 
