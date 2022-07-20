@@ -269,24 +269,6 @@ sortCharacter.addEventListener("change",(event)=>{
 
 /// PERSONAJES FILTRADOS EN PANTALLA ///
 
-// gender.addEventListener("change",(event)=>{
-//   const selectedGender = event.target.value;
-//   filters.gender = selectedGender
-//   const tipo = 'personajes'
-//   const dataPersonajes = obtenerDataTipo(films,tipo)
-//   const filteredGender = filtrarDoble(dataPersonajes, filters);
-//   showCharacter(filteredGender,tipo);
-// });
-
-// specie.addEventListener("change",(event)=>{
-//   const selectedSpecie = event.target.value;
-//   filters.specie = selectedSpecie
-//   const tipo = 'personajes'
-//   const dataPersonajes = obtenerDataTipo(films,tipo)
-//   const filteredSpecie = filtrarDoble(dataPersonajes, filters);
-//   showCharacter(filteredSpecie,tipo);
-// });
-
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
@@ -296,7 +278,7 @@ gender.addEventListener("change",(event)=>{
     showCharacter(filteredGender,'personajes');
   }
   else{
-    const filteredGender = filtrarDoble(dataPersonajes, filters);
+    const filteredGender = filtrarDoble(dataPersonajes, filters.gender,filters.specie,'gender','specie');
     showCharacter(filteredGender,'personajes');
   }
 });
@@ -310,7 +292,7 @@ specie.addEventListener("change",(event)=>{
     showCharacter(filteredSpecie,'personajes');
   }
   else{
-    const filteredSpecie = filtrarDoble(dataPersonajes, filters);
+    const filteredSpecie = filtrarDoble(dataPersonajes, filters.gender,filters.specie,'gender','specie');
     showCharacter(filteredSpecie,'personajes');
   }
 });
