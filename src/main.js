@@ -1,7 +1,8 @@
 import data from './data/ghibli/ghibli.js';
 /// PERSONAJES DE LAS PELICULAS /// 
 import {ordenarAZ,filterDirector,filtering,
-  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,ordenarPersonajes, filtrarDobleLocaciones} from './data.js';
+  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,filtrar,
+  ordenarPersonajes, filtrarDobleLocaciones} from './data.js';
 
 
 // let itemAZ = document.getElementById("itemAZ");
@@ -268,22 +269,50 @@ sortCharacter.addEventListener("change",(event)=>{
 
 /// PERSONAJES FILTRADOS EN PANTALLA ///
 
+// gender.addEventListener("change",(event)=>{
+//   const selectedGender = event.target.value;
+//   filters.gender = selectedGender
+//   const tipo = 'personajes'
+//   const dataPersonajes = obtenerDataTipo(films,tipo)
+//   const filteredGender = filtrarDoble(dataPersonajes, filters);
+//   showCharacter(filteredGender,tipo);
+// });
+
+// specie.addEventListener("change",(event)=>{
+//   const selectedSpecie = event.target.value;
+//   filters.specie = selectedSpecie
+//   const tipo = 'personajes'
+//   const dataPersonajes = obtenerDataTipo(films,tipo)
+//   const filteredSpecie = filtrarDoble(dataPersonajes, filters);
+//   showCharacter(filteredSpecie,tipo);
+// });
+
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
-  const tipo = 'personajes'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredGender = filtrarDoble(dataPersonajes, filters);
-  showCharacter(filteredGender,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'personajes')
+  if (filters.specie == ''){
+    const filteredGender = filtrar(dataPersonajes, filters.gender,'gender');
+    showCharacter(filteredGender,'personajes');
+  }
+  else{
+    const filteredGender = filtrarDoble(dataPersonajes, filters);
+    showCharacter(filteredGender,'personajes');
+  }
 });
 
 specie.addEventListener("change",(event)=>{
   const selectedSpecie = event.target.value;
   filters.specie = selectedSpecie
-  const tipo = 'personajes'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredSpecie = filtrarDoble(dataPersonajes, filters);
-  showCharacter(filteredSpecie,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'personajes')
+  if (filters.gender == ''){
+    const filteredSpecie = filtrar(dataPersonajes, filters.specie ,'specie');
+    showCharacter(filteredSpecie,'personajes');
+  }
+  else{
+    const filteredSpecie = filtrarDoble(dataPersonajes, filters);
+    showCharacter(filteredSpecie,'personajes');
+  }
 });
 
 
