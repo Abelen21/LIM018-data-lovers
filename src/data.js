@@ -99,6 +99,7 @@ export const filtrarEspecie = (personajes,especie) => {
 //   return personajes_filtrado
 // }
 export const filtrar = (array,valor,atributo) => {
+  console.log('valor', valor)
   const personajes_filtrado = array.filter(array => array[atributo] == valor);
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado

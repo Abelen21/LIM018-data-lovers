@@ -325,24 +325,52 @@ sortLocation.addEventListener("change",(event)=>{
 
 /// LOCACIONES FILTRADAS EN PANTALLA ///
 
+// climate.addEventListener("change",(event)=>{
+//   const selectedClimate = event.target.value;
+//   filters.climate = selectedClimate
+//   const tipo = 'locaciones'
+//   const dataPersonajes = obtenerDataTipo(films,tipo)
+//   const filteredClimate = filtrarDobleLocaciones(dataPersonajes, filters);
+//   showCharacter(filteredClimate,tipo);
+// });
+
 climate.addEventListener("change",(event)=>{
   const selectedClimate = event.target.value;
   filters.climate = selectedClimate
-  const tipo = 'locaciones'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredClimate = filtrarDobleLocaciones(dataPersonajes, filters);
-  showCharacter(filteredClimate,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'locaciones')
+  console.log(selectedClimate)
+  if (filters.terrain == ''){
+    const filteredClimate = filtrar(dataPersonajes, filters.climate,'climate');
+    showCharacter(filteredClimate,'locaciones');
+  }
+  else{
+    const filteredClimate = filtrarDoble(dataPersonajes, filters.climate,filters.terrain,'climate','terrain');
+    showCharacter(filteredClimate,'locaciones');
+  }
 });
+
+// terrain.addEventListener("change",(event)=>{
+//   const selectedTerrain = event.target.value;
+//   filters.terrain = selectedTerrain
+//   const tipo = 'locaciones'
+//   const dataPersonajes = obtenerDataTipo(films,tipo)
+//   const filteredTerrain = filtrarDobleLocaciones(dataPersonajes, filters);
+//   showCharacter(filteredTerrain,tipo);
+// });
 
 terrain.addEventListener("change",(event)=>{
   const selectedTerrain = event.target.value;
   filters.terrain = selectedTerrain
-  const tipo = 'locaciones'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredTerrain = filtrarDobleLocaciones(dataPersonajes, filters);
-  showCharacter(filteredTerrain,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'locaciones')
+  if (filters.climate == ''){
+    const filteredTerrain = filtrar(dataPersonajes, filters.terrain,'terrain');
+    showCharacter(filteredTerrain,'locaciones');
+  }
+  else{
+    const filteredTerrain = filtrarDoble(dataPersonajes, filters.climate,filters.terrain,'climate','terrain');
+    showCharacter(filteredTerrain,'locaciones');
+  }
 });
-
 
 
 
