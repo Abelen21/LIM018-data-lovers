@@ -307,6 +307,7 @@ section.character div.card ul{
 
 section.character div.card ul img{
   border-radius: 15px;
+  object-fit: cover;
 }
 
 .character{
@@ -377,6 +378,7 @@ section.location div.card ul{
 
 section.location div.card ul img{
   border-radius: 15px;
+  object-fit: cover;
 }
 
 .location{
