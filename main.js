@@ -1,7 +1,8 @@
 import data from './data/ghibli/ghibli.js';
 /// PERSONAJES DE LAS PELICULAS /// 
 import {ordenarAZ,filterDirector,filtering,
-  obtenerDataTipo,filtrarGenero,filtrarEspecie, filtrarDoble,ordenarPersonajes, filtrarDobleLocaciones} from './data.js';
+  obtenerDataTipo, filtrarDoble,filtrar,
+  ordenarPersonajes} from './data.js';
 
 
 // let itemAZ = document.getElementById("itemAZ");
@@ -218,7 +219,7 @@ function showCharacter(element,tipo){
     for(let i=0 ; i< element.length; i++){
       characterCards.innerHTML+=`<div class='card'>
       <ul>
-      <img src='${element[i].img}' width='200px'>
+      <img src='${element[i].img}' width='200px' height='250px'>
       <p>${element[i].name}</p>
       <p>Edad:${element[i].age}</p>
       <p>Género:${element[i].gender}</p>
@@ -232,7 +233,7 @@ function showCharacter(element,tipo){
     for(let i=0 ; i< element.length; i++){
       locationsCards.innerHTML+=`<div class='card'>
       <ul>
-      <img src='${element[i].img}' width='200px'>
+      <img src='${element[i].img}' width='200px' height='150px'></img>
       <p>${element[i].name}</p>
       <p>Clima:${element[i].climate}</p>
       <p>Terreno:${element[i].terrain}</p>
@@ -241,6 +242,7 @@ function showCharacter(element,tipo){
     }
   }
 }
+//<div style='background-image: url(${element[i].img}); width: 200px; height: 107px;'></div>
 
 function showSection(section1,section2,section3,section4,data,tipo){
   section1.style.display ='none'
@@ -271,19 +273,29 @@ sortCharacter.addEventListener("change",(event)=>{
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
-  const tipo = 'personajes'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredGender = filtrarDoble(dataPersonajes, filters);
-  showCharacter(filteredGender,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'personajes')
+  if (filters.specie == ''){
+    const filteredGender = filtrar(dataPersonajes, filters.gender,'gender');
+    showCharacter(filteredGender,'personajes');
+  }
+  else{
+    const filteredGender = filtrarDoble(dataPersonajes, filters.gender,filters.specie,'gender','specie');
+    showCharacter(filteredGender,'personajes');
+  }
 });
 
 specie.addEventListener("change",(event)=>{
   const selectedSpecie = event.target.value;
   filters.specie = selectedSpecie
-  const tipo = 'personajes'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredSpecie = filtrarDoble(dataPersonajes, filters);
-  showCharacter(filteredSpecie,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'personajes')
+  if (filters.gender == ''){
+    const filteredSpecie = filtrar(dataPersonajes, filters.specie ,'specie');
+    showCharacter(filteredSpecie,'personajes');
+  }
+  else{
+    const filteredSpecie = filtrarDoble(dataPersonajes, filters.gender,filters.specie,'gender','specie');
+    showCharacter(filteredSpecie,'personajes');
+  }
 });
 
 
@@ -317,21 +329,31 @@ sortLocation.addEventListener("change",(event)=>{
 climate.addEventListener("change",(event)=>{
   const selectedClimate = event.target.value;
   filters.climate = selectedClimate
-  const tipo = 'locaciones'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredClimate = filtrarDobleLocaciones(dataPersonajes, filters);
-  showCharacter(filteredClimate,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'locaciones')
+  console.log(selectedClimate)
+  if (filters.terrain == ''){
+    const filteredClimate = filtrar(dataPersonajes, filters.climate,'climate');
+    showCharacter(filteredClimate,'locaciones');
+  }
+  else{
+    const filteredClimate = filtrarDoble(dataPersonajes, filters.climate,filters.terrain,'climate','terrain');
+    showCharacter(filteredClimate,'locaciones');
+  }
 });
 
 terrain.addEventListener("change",(event)=>{
   const selectedTerrain = event.target.value;
   filters.terrain = selectedTerrain
-  const tipo = 'locaciones'
-  const dataPersonajes = obtenerDataTipo(films,tipo)
-  const filteredTerrain = filtrarDobleLocaciones(dataPersonajes, filters);
-  showCharacter(filteredTerrain,tipo);
+  const dataPersonajes = obtenerDataTipo(films,'locaciones')
+  if (filters.climate == ''){
+    const filteredTerrain = filtrar(dataPersonajes, filters.terrain,'terrain');
+    showCharacter(filteredTerrain,'locaciones');
+  }
+  else{
+    const filteredTerrain = filtrarDoble(dataPersonajes, filters.climate,filters.terrain,'climate','terrain');
+    showCharacter(filteredTerrain,'locaciones');
+  }
 });
-
 
 
 
