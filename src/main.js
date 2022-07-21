@@ -219,7 +219,7 @@ function showCharacter(element,tipo){
     for(let i=0 ; i< element.length; i++){
       characterCards.innerHTML+=`<div class='card'>
       <ul>
-      <img src='${element[i].img}' width='200px'>
+      <img src='${element[i].img}' width='200px' height='250px'>
       <p>${element[i].name}</p>
       <p>Edad:${element[i].age}</p>
       <p>Género:${element[i].gender}</p>
@@ -233,7 +233,7 @@ function showCharacter(element,tipo){
     for(let i=0 ; i< element.length; i++){
       locationsCards.innerHTML+=`<div class='card'>
       <ul>
-      <img src='${element[i].img}' width='200px'>
+      <img src='${element[i].img}' width='200px' height='150px'></img>
       <p>${element[i].name}</p>
       <p>Clima:${element[i].climate}</p>
       <p>Terreno:${element[i].terrain}</p>
@@ -242,6 +242,7 @@ function showCharacter(element,tipo){
     }
   }
 }
+//<div style='background-image: url(${element[i].img}); width: 200px; height: 107px;'></div>
 
 function showSection(section1,section2,section3,section4,data,tipo){
   section1.style.display ='none'
