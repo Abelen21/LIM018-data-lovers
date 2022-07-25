@@ -1,217 +1,50 @@
 import data from './data/ghibli/ghibli.js';
-/// PERSONAJES DE LAS PELICULAS /// 
-import {ordenarAZ,filterDirector,filtering,
-  obtenerDataTipo, filtrarDoble,filtrar,
-  ordenarPersonajes} from './data.js';
+import {obtenerDataTipo, filtrarDoble, filtrar, ordenarPersonajes} from './data.js';
 
-
-// let itemAZ = document.getElementById("itemAZ");
-// let directors = document.getElementById("directors")
 const films = data.films
-// ordenarAZ(films)
-// console.log(films)
+//console.log('peliculas',films)
 
-const filmsCountDiv = document.getElementById("filmsCountDiv")
-const containerA = document.getElementById("containerA")
-containerA.style.display="none"
+///// **********SECCIONES********** ///
+// let reseña = document.getElementById("id_reseña")
+let animaciones=document.getElementById('animaciones')
+let personajes_id=document.getElementById('personajes')
+let locaciones=document.getElementById('locaciones')
 
-const mainImagen = document.querySelector(".mainImagen")
+///// **********ANIMACIONES********** ///
+let animationCards=document.getElementById("animationCards")
+let animationCountDiv=document.getElementById("animationCountDiv")
+let sortAnimation=document.getElementById("sortAnimation")
+let director=document.getElementById('director')
+let producer=document.getElementById('producer')
+let menu_animaciones=document.getElementById('menu_animaciones')
 
-function showFilms(element){
-  filmsCountDiv.innerHTML = "Aquí hay un total de " + element.length + " peliculas.";
-  mainImagen.innerHTML= "";
-  for (const film of element){
-    const elementIndex = `
-    <div id="divCard" class="film">
-        <div class="container">
-            <div class="face">
-                <div class="posterTitle">
-                    <h2>${film.title}</h2>
-                    <img alt="Film poster" src="${film.poster}"/>
-                </div>
-            </div>
-            <div class="info">             
-              <div class="infoFirstA">
-                <p class="text">Año de Lanzamiento: ${film.release_date}</p>
-                <p class="text">Director: ${film.director}</p>
-                <p class="text">Productor: ${film.producer}</p>
-                <p class="text">Score: ${film.rt_score}</p>  
-              </div>                
-            </div>
-        </div>
-    </div>`;
-    
-
-mainImagen.innerHTML += elementIndex;
-}
-}
-showFilms(films)
-
-
-// const posterTitle = document.querySelector(".posterTitle")
-
-// posterTitle.addEventListener("click",function(){
-//   function showFilms(element){
-//     mainImagen.innerHTML= "";
-//     for (const film of element){
-//       const elementIndex = `
-//       <div id="divCard" class="film">
-//           <div class="container">
-//               <div class="face">
-//                 <div class="posterTitle">
-//                   <h2>${film.title}</h2>
-//                   <img class="face" alt="Film poster" src="${film.poster}"/>
-//                 </div>
-//               </div>
-//               <div class="info">
-//                 <div>
-//                   <p class="infoSecond"><h3>Descripción:</h3><br> ${film.description}</p>
-//                 </div>
-//               </div>
-//           </div>
-//       </div>`;
-//   mainImagen.innerHTML += elementIndex;
-//   }
-//   }
-//   showFilms(films)
-  
-// })
-
-const posterTitle = document.querySelector(".posterTitle")
-
-posterTitle.addEventListener("click",function(){
-  function showFilms(element){
-    mainImagen.innerHTML= "";
-    for (const film of element){
-      const elementIndex = `
-      <div id="divCard" class="film">
-          <div class="container">
-              <div class="face">
-                <div class="posterTitle">
-                  <h2>${film.title}</h2>
-                  <img class="face" alt="Film poster" src="${film.poster}"/>
-                </div>
-              </div>
-              <div class="info">
-                <div>
-                  <p class="infoSecond"><h3>Descripción:</h3><br> ${film.description}</p>
-                </div>
-              </div>
-          </div>
-      </div>`;
-  mainImagen.innerHTML += elementIndex;
-  }
-  }
-  showFilms(films)
-  
-})
-
-itemAZ.addEventListener("change",(event)=>{
-  const selectedSort = event.target.value;
-  const filteredSort = ordenarAZ(films, selectedSort);
-  showFilms(filteredSort);
-});
-
-director.addEventListener("change",(event)=>{
-  const selectedDirector = event.target.value;
-  const filteredDirector = filtering(films, "director", selectedDirector );
-  showFilms(filteredDirector);
-});
-
-producer.addEventListener("change",(event)=>{
-  const selectedProducer = event.target.value;
-  const filteredProducer = filtering(films, "producer", selectedProducer );
-  showFilms(filteredProducer);
-});
-
-date.addEventListener("change",(event)=>{
-  const selectedDate = event.target.value;
-  const filteredDate = filtering(films, "release_date", selectedDate );
-  showFilms(filteredDate);
-});
-
-let btnReseña = document.getElementById("btnReseña")
-let animaciones = document.getElementById("animaciones")
-
-let reseña = document.getElementById("reseña")
-let imgCuadro = document.getElementById("imgCuadro")
-
-let personajes_id = document.getElementById('personajes')
-let locaciones = document.getElementById('locaciones')
-
-btnReseña.addEventListener("click",function(){ 
-  animaciones.style.display="none"
-  personajes_id.style.display="none"
-  locaciones.style.display ="none"
-  imgCuadro.style.display="block"
-  reseña.style.display="block"
-  containerA.style.display="block"
-})
-
-let btnAnimaciones = document.getElementById("btnAnimaciones")
-
-btnAnimaciones.addEventListener("click",function(){ 
-  imgCuadro.style.display="none"
-  reseña.style.display="none"
-  containerA.style.display="none"
-  animaciones.style.display="block"
-  personajes_id.style.display="none"
-  locaciones.style.display ="none"
-})
-
-
-
-// document.getElementById("charsCountDiv").innerHTML = "Aquí hay un total de " + personajes.length + " personajes.";
-
-// gender.addEventListener("change",(event)=>{
-//   const selectedGender = event.target.value;
-//     if (selectedGender === "") {
-//         document.getElementById("charsCountDiv").innerHTML = "There is a total of " + personajes.length + " characters.";
-//         // showCharacter(personajes);
-//     } else {
-//         const filtered = filtering(personajes, "gender", selectedGender);
-//         showCharacter(filtered);
-
-//         if (quantity(filtered) <= 1) {
-//             document.getElementById("charsCountDiv").innerHTML = "Aquí hay " + quantity(filtered) + " " + selectedGender + " personajes de un total de " + personajes.length + " personajes.";
-//         } else {
-//             document.getElementById("charsCountDiv").innerHTML = "Aquí hay " + quantity(filtered) + " " + selectedGender + " personajes de un total de " + personajes.length + " personajes.";
-//         }
-//     }
-// });
-
-
-
-
-
-
-///// *************PERSONAJES********************* ///
-
-// let animaciones = document.getElementById('animaciones')
-// let personajes = document.getElementById('personajes')
-// let locaciones = document.getElementById('locaciones')
-
+///// **********PERSONAJES********** ///
 let characterCards=document.getElementById("characterCards")
 let charsCountDiv=document.getElementById("charsCountDiv")
 let sortCharacter=document.getElementById("sortCharacter")
 let gender=document.getElementById('gender')
 let specie=document.getElementById('specie')
-let menu_personajes = document.getElementById('menu_personajes')
+let menu_personajes=document.getElementById('menu_personajes')
 
+///// *************LOCACIONES********************* ///
 let locationsCards=document.getElementById("locationsCards")
 let locationsCountDiv=document.getElementById("locationsCountDiv")
 let sortLocation=document.getElementById("sortLocation")
 let climate=document.getElementById("climate")
 let terrain=document.getElementById("terrain")
-let menu_locaciones = document.getElementById('menu_locaciones')
+let menu_locaciones=document.getElementById('menu_locaciones')
 
+///// *************FILTROS********************* ///
 let filters = {
+  director:"",
+  producer:"",
   gender :"" , 
   specie :"",
   climate:"",
   terrain:""
 }
 
+///// *************FUNCIONES********************* ///
 function showCharacter(element,tipo){
   if(tipo=='personajes'){
     charsCountDiv.innerHTML = "Aquí hay un total de " + element.length + " personajes.";
@@ -224,6 +57,21 @@ function showCharacter(element,tipo){
       <p>Edad:${element[i].age}</p>
       <p>Género:${element[i].gender}</p>
       <p>Especie:${element[i].specie}</p>
+      </ul>
+      </div>`;
+    }
+  }else if(tipo=='animaciones'){
+    animationCountDiv.innerHTML = "Aquí hay un total de " + element.length + " animaciones.";
+    animationCards.innerHTML= "";
+    for(let i=0 ; i< element.length; i++){
+      animationCards.innerHTML+=`<div class='card'>
+      <ul>
+      <img src='${element[i].poster}' width='200px' height='250px'>
+      <p>${element[i].title}</p>
+      <p>Director:${element[i].director}</p>
+      <p>Productor:${element[i].producer}</p>
+      <p>Lanzamiento:${element[i].release_date}</p>
+      <p>Ranking:${element[i].rt_score}</p>
       </ul>
       </div>`;
     }
@@ -242,34 +90,82 @@ function showCharacter(element,tipo){
     }
   }
 }
-//<div style='background-image: url(${element[i].img}); width: 200px; height: 107px;'></div>
 
-function showSection(section1,section2,section3,section4,data,tipo){
+function showSection(section1,section2,section3,data,tipo){
   section1.style.display ='none'
   section2.style.display ='none'
-  section3.style.display = 'none'
-  section4.style.display ='block'
+  // section3.style.display = 'none'
+  section3.style.display ='block'
   showCharacter(data,tipo)
 }
 
-/// PERSONAJES EN PANTALLA ///
+///// *************ANIMACIONES EN PANTALLA********************* ///
+menu_animaciones.addEventListener("click",(event)=>{
+  const tipo = 'animaciones'
+  showSection(locaciones,personajes_id,animaciones,films,tipo);
+  console.log('peliculas',films)
+})
+
+///// *************ANIMACIONES ORDENADAS EN PANTALLA********************* ///
+sortAnimation.addEventListener("change",(event)=>{
+  console.log('hice click')
+  const tipo = 'animaciones'
+  const selectedSort = event.target.value;
+  if(selectedSort==="A-Z" || selectedSort==="Z-A"){
+    ordenarPersonajes(films,selectedSort,'title')
+  }else if(selectedSort==="Cronología" || selectedSort==="Más recientes"){
+    ordenarPersonajes(films,selectedSort,'release_date')
+  }else{
+    ordenarPersonajes(films,selectedSort,'rt_score')
+  }
+  showCharacter(films,tipo)
+});
+
+///// *************ANIMACIONES FILTRADAS EN PANTALLA********************* ///
+director.addEventListener("change",(event)=>{
+  const selectedDirector = event.target.value;
+  filters.director = selectedDirector
+  if (filters.producer == ''){
+    const filteredDirector = filtrar(films, filters.director,'director');
+    showCharacter(filteredDirector,'animaciones');
+  }
+  else{
+    const filteredDirector = filtrarDoble(films, filters.director,filters.producer,'director','producer');
+    showCharacter(filteredDirector,'animaciones');
+  }
+});
+
+producer.addEventListener("change",(event)=>{
+  const selectedProducer = event.target.value;
+  filters.producer = selectedProducer
+  if (filters.producer == ''){
+    const filteredProducer = filtrar(films, filters.producer ,'producer');
+    showCharacter(filteredProducer,'animaciones');
+  }
+  else{
+    const filteredProducer = filtrarDoble(films, filters.director,filters.producer,'director','producer');
+    showCharacter(filteredProducer,'animaciones');
+  }
+});
+
+///// *************PERSONAJES EN PANTALLA********************* ///
 menu_personajes.addEventListener("click",(event)=>{
   const tipo = 'personajes'
   const dataPersonajes = obtenerDataTipo(films,tipo)
-  showSection(animaciones,locaciones,reseña,personajes_id,dataPersonajes,tipo);
+  showSection(animaciones,locaciones,personajes_id,dataPersonajes,tipo);
   console.log('revisado',dataPersonajes)
 })
 
-/// PERSONAJES ORDENADOS EN PANTALLA A-Z ///
+///// *************PERSONAJES ORDENADOS EN PANTALLA********************* ///
 sortCharacter.addEventListener("change",(event)=>{
   const tipo = 'personajes'
   const dataPersonajes = obtenerDataTipo(films,tipo)
-  ordenarPersonajes(dataPersonajes);
+  const selectedSort = event.target.value;
+  ordenarPersonajes(dataPersonajes,selectedSort,'name');
   showCharacter(dataPersonajes,tipo);
 });
 
-/// PERSONAJES FILTRADOS EN PANTALLA ///
-
+///// *************PERSONAJES FILTRADOS EN PANTALLA********************* ///
 gender.addEventListener("change",(event)=>{
   const selectedGender = event.target.value;
   filters.gender = selectedGender
@@ -298,34 +194,24 @@ specie.addEventListener("change",(event)=>{
   }
 });
 
-
-
-
-
-///////***** LOCACIONES ******///////////////
-
-/// LOCACIONES EN PANTALLA ///
-
+///// *************LOCACIONES EN PANTALLA********************* ///
 menu_locaciones.addEventListener("click",(event)=>{
   const tipo = 'locaciones'
   const dataPersonajes = obtenerDataTipo(films,tipo)
-  showSection(animaciones,personajes_id,reseña,locaciones,dataPersonajes,tipo);
+  showSection(animaciones,personajes_id,locaciones,dataPersonajes,tipo);
   console.log('revisado',dataPersonajes)
 })
 
-/// LOCACIONES ORDENADAS EN PANTALLA ///
-
+///// *************LOCACIONES ORDENADAS EN PANTALLA********************* ///
 sortLocation.addEventListener("change",(event)=>{
-  // const selectedSort = event.target.value;
-  // const filteredSort = ordenarPersonajes(personajes);
   const tipo = 'locaciones'
   const dataPersonajes = obtenerDataTipo(films,tipo)
-  ordenarPersonajes(dataPersonajes);
+  const selectedSort = event.target.value;
+  ordenarPersonajes(dataPersonajes,selectedSort,'name');
   showCharacter(dataPersonajes,tipo);
 });
 
-/// LOCACIONES FILTRADAS EN PANTALLA ///
-
+///// *************LOCACIONES FILTRADAS EN PANTALLA********************* ///
 climate.addEventListener("change",(event)=>{
   const selectedClimate = event.target.value;
   filters.climate = selectedClimate

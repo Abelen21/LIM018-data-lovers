@@ -1,4 +1,4 @@
-*{
+/* *{
   padding: 0;
   margin: 0;
 }
@@ -21,7 +21,6 @@ body{
   list-style-type: none;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
   background-color: #333738;
   width: 100%;
   display: inline-flex;
@@ -59,15 +58,6 @@ a{
 #imagen{
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  /* flex-direction: ; */
-  /* justify-content: space-evenly; */
-  /* border: solid green 10px; */
-  /* align-items: center; */
-  /* flex-direction: row; */
-  /* object-fit: cover; */
-  /* box-sizing: border-box; */
-  /* width: clamp(200px, 100%, 3000px);  */
 }
 
 .frontCard, .backCard {
@@ -76,15 +66,9 @@ a{
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
-/* .frontCard, .backCard
-  position: absolute;
-  justify-content: center;
-  align-items: centers;
-  width: 100%;
-  height: 100%; */
+
 .posterTitle{
   display: flex;
-  /* opacity: .5; */
   background-color: rgba(247, 246, 243, 0.5);
   box-shadow: 4px 10px 10px;
   flex-direction: column;
@@ -105,8 +89,6 @@ a{
   width: 250px;
   height: 360px;
   border-radius: 15px;
-  /* opacity: .5;
-  opacity: 1; */
 }
 .backCard p{
   border: solid rgb(40, 59, 199);
@@ -115,7 +97,6 @@ a{
 
 .info{
   border-radius: 10px;
-  /* filter: drop-shadow(7px 10px 10px gray); */
   background-color: rgba(192, 185, 185, 0.7);
   height: 200px;
   padding: 17px;
@@ -135,13 +116,11 @@ a{
 .containerReseña{
   display: flex;
   background-color: rgba(192, 185, 185, 0.7);
-  /* box-shadow: 10px 10px 10px; */
   border-radius: 7px;
   margin: 10px;
 }
 .infoReseña{
   border: solid rgb(70, 67, 67);
-    /* box-shadow: 10px 10px 10px; */
   width: 700px;
   height: 470px;
   margin: 90px;
@@ -157,15 +136,10 @@ a{
   padding: 10px;
 }
 #imgCuadro{
-  /* margin: auto; */
-  /* margin: 70px; */
-  /* margin-left: 5px; */
   margin: 10%;
-  /* margin-top: 50px; */
   width: 80%;
   border-radius: 10px;
   box-shadow: 15px 15px 15px;
-
 }
 
 .info p{
@@ -183,17 +157,6 @@ a{
   border: solid yellowgreen;
 }
 
-
-
-/* .info .infoFirst{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-/* .info h4{
-  display: flex;
-} */
 .info::-webkit-scrollbar {
   -webkit-appearance: none;
 }
@@ -223,7 +186,6 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* border: solid rgb(136, 67, 226) 7px; */
   border: solid rgb(0, 0, 0);
   background-color: #be2e2e;
 }
@@ -236,18 +198,26 @@ a{
   overflow: hidden;
   height: 30px;
   width:280px
-
-    /* border-radius: 3px; */
-  
 }
 
 select{
   width: 200px;
   height: 30px;
   cursor: pointer; 
+} */
+
+/* -------- */
+.reseña{
+  display: none;
 }
 
-
+/* ----ANIMACIONES---- */
+.animation{
+  margin: 64px 100px;
+}
+.animation{
+  display: none;
+}
 
 /* ----PERSONAJES---- */
 
