@@ -2,7 +2,6 @@ import data from './data/ghibli/ghibli.js';
 import {obtenerDataTipo, filtrarDoble, filtrar, ordenarPersonajes} from './data.js';
 
 const films = data.films
-//console.log('peliculas',films)
 
 ///// **********SECCIONES********** ///
 // let reseña = document.getElementById("id_reseña")
@@ -98,6 +97,8 @@ function showSection(section1,section2,section3,data,tipo){
   section3.style.display ='block'
   showCharacter(data,tipo)
 }
+
+showSection(locaciones,personajes_id,animaciones,films,'animaciones');
 
 ///// *************ANIMACIONES EN PANTALLA********************* ///
 menu_animaciones.addEventListener("click",(event)=>{
