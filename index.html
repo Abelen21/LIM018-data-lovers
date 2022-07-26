@@ -17,8 +17,8 @@
         </figure>
         <nav>
           <ul id="menu">
-            <a id="btnReseña" href="#">RESEÑA</a>
-            <a id="btnAnimaciones" href="#">ANIMACIONES</a>
+            <!-- <a id="menu_reseña" href="#">RESEÑA</a> -->
+            <a id="menu_animaciones" href="#">ANIMACIONES</a>
             <a id="menu_personajes" href="#">PERSONAJES</a>
             <a id="menu_locaciones" href="#">LOCACIONES</a>
           </ul>
@@ -26,69 +26,8 @@
       </div>
     </section>
 
-    <!-- Sección animaciones -->
-    <section class="animation" id="animaciones">
-      <div class="animation_container">
-        <div id="options">
-          <div>
-            <select id="itemAZ" class="itemSelect">
-              <option selected disabled value="">Alfabeticamente</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-            </select>
-          </div>
-          <div>
-            <select id="director" class="itemSelect">
-              <option selected disabled value="">Director</option>
-              <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-              <option value="Isao Takahata">Isao Takahata</option>
-              <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-              <option value="Hiroyuki Morita">Hiroyuki Morita</option>
-              <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-              <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-            </select>
-          </div>
-          <div>
-            <select id="producer" class="itemSelect">
-              <option selected disabled value="">Productor</option>
-              <option value="Isao Takahata">Isao Takahata</option>
-              <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-              <option value="Toru Hara">Toru Hara</option>
-              <option value="Toshio Suzuki">Toshio Suzuki</option>
-              <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>      
-            </select>
-          </div>
-          <div>
-            <select id="date" class="itemSelect">
-              <option selected disabled value="">Lanzamiento</option>
-              <option value="1986">1986</option>
-              <option value="1988">1988</option>
-              <option value="1989">1989</option>
-              <option value="1991">1991</option>
-              <option value="1992">1992</option>
-              <option value="1994">1994</option>
-              <option value="1995">1995</option>
-              <option value="1997">1997</option>
-              <option value="1999">1999</option>
-              <option value="2001">2001</option>
-              <option value="2002">2002</option>
-              <option value="2004">2004</option>
-              <option value="2006">2006</option>
-              <option value="2008">2008</option>
-              <option value="2010">2010</option>
-              <option value="2011">2011</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-            </select>
-          </div>
-        </div>
-        <div id="filmsCountDiv" class="filmsCountDiv"></div>
-        <main id="imagen" class="mainImagen"></main>
-      </div>
-    </section>
-
     <!-- Sección reseña  -->
-    <section class="reseña" id="id_reseña">
+    <!-- <section class="reseña" id="id_reseña">
       <div id="containerA">
         <div class="containerReseña">
           <section class="infoReseña">
@@ -151,6 +90,48 @@
           </div>
         </div>
       </div> 
+    </section> -->
+
+    <!-- Sección animaciones -->
+    <section class="animation" id="animaciones">
+      <div class="animationContainer">
+        <div class="animationFilterSearch">
+          <div class="animationFilters">
+            <select class="select" id="sortAnimation">
+              <option selected value="">Ordenar por</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+              <option value="Cronología">Cronología</option>
+              <option value="Más recientes">Más recientes</option>
+              <option value="Ranking más alto">Ranking más alto</option>
+              <option value="Ranking más bajo">Ranking más bajo</option>
+            </select>
+          </div>
+          <div class="animationFilters">
+            <select class="select" id="director">
+              <option selected value="">Director</option>
+              <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+              <option value="Isao Takahata">Isao Takahata</option>
+              <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+              <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+              <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+              <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+            </select>
+          </div>
+          <div class="animationFilters">
+            <select class="select" id="producer">
+              <option selected value="">Productor</option>
+              <option value="Isao Takahata">Isao Takahata</option>
+              <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+              <option value="Toru Hara">Toru Hara</option>
+              <option value="Toshio Suzuki">Toshio Suzuki</option>
+              <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>      
+            </select>
+          </div>
+        </div>
+        <div class="animationCount" id="animationCountDiv"></div>
+        <main class= "mainCards" id="animationCards"></main>
+      </div>
     </section>
 
     <!-- Seccion personajes -->
@@ -161,6 +142,7 @@
             <select class="select" id="sortCharacter">
               <option selected value="">Ordenar por</option>
               <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
             </select>
           </div>
           <div class="characterFilters" id="filterGender">
@@ -213,6 +195,7 @@
             <select class="select" id="sortLocation">
               <option value="">Sort by</option>
               <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
             </select>
           </div>
           <div class="filters" id="filterClimate">
@@ -220,6 +203,7 @@
               <option selected value="">Climate</option>
               <option value="Dry">Dry</option>
               <option value="Continental">Continental</option>
+              <option value="Mild">Mild</option>
               <option value="Tropical">Tropical</option>
               <option value="Wet">Wet</option>
               <option value="Warm">Warm</option>

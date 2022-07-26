@@ -1,46 +1,6 @@
-export const filtering = (array, element, condition)=> 
-array.filter((a) => a[element] === condition);
 
-export const ordenarAZ = (data, orden) => {
-  if (orden === "A-Z") {
-    return data.sort((a, b) => a.title > b.title ? 1 : -1);
-  } else if (orden === "Z-A") {
-    return data.sort((a, b) => a.title > b.title ? -1 : 1);
-  }
-};
+// ---- FUNCIONES ------- //
 
-export const filterDirector = (films,nameDirector) => {
-
-  let result = films.filter(f => f.director == nameDirector);
-  // let result = data.filter(movie => movie[category] === value);
-  return result;
-};
-// prueba
-// export const mostrarDirector = (films) => {
-//   let directores = [];
-//   console.log('peliculas',films)
-//   for (let i = 0 ; i<films.length ; i++){
-//     directores = directores.concat(films[i].director)
-//   }
-//   return directores;
-// };
-
-
-
-
-
-
-// ---- FUNCIONES PERSONAJES ------- //
-
-// export const obtenerPersonajes = (films) => {
-//   let personajes = [];
-//   console.log('peliculas',films)
-//   for (let i = 0 ; i< films.length ; i++){
-//     personajes = personajes.concat(films[i].people)
-//   }
-//   console.log('personajes',personajes)
-//   return personajes;
-// }
 
 export const obtenerDataTipo = (films,tipo) => {
   let personajes = [];
@@ -56,19 +16,30 @@ export const obtenerDataTipo = (films,tipo) => {
   return personajes;
 }
 
-export const ordenarPersonajes = (personajes) => {
-  personajes.sort((a,b) =>{
-    if(a.name < b.name){
-      return -1;
-    }
-    if(a.name > b.name){
-      return 1;
-    }
-    return 0;
-  })
-  console.log('personajes ordenados',personajes)
+export const ordenarPersonajes = (personajes,orden,atributo) => {
+  if (orden==="A-Z" || orden==="Cronología" || orden==="Ranking más bajo"){
+    personajes.sort((a,b) =>{
+      if(a[atributo]< b[atributo]){
+        return -1;
+      }
+      if(a[atributo] > b[atributo]){
+        return 1;
+      }
+      return 0;
+    })
+    console.log('personajes ordenados',personajes)
+  }else if(orden==="Z-A" || orden==="Más recientes" || orden==="Ranking más alto"){
+    personajes.sort((a,b) =>{
+      if(a[atributo]< b[atributo]){
+        return 1;
+      }
+      if(a[atributo] > b[atributo]){
+        return -1;
+      }
+      return 0;
+    })
+  }
 }
-
 
 export const filtrar = (array,valor,atributo) => {
   console.log('valor', valor)
@@ -76,7 +47,6 @@ export const filtrar = (array,valor,atributo) => {
   console.log('personajes filtrados',personajes_filtrado)
   return personajes_filtrado
 }
-
 
 export const filtrarDoble = (array,valor1,valor2,atributo1,atributo2) => {
   console.log('filtros', valor1)
