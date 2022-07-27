@@ -1,41 +1,6 @@
 
-import { obtenerDataTipo, ordenarPersonajes } from '../src/data.js';
+import { filtrar, obtenerDataTipo, ordenarPersonajes, filtrarDoble } from '../src/data.js';
 
-///  Tests funciones animaciones ///////
-
-// describe('probando ordenarAZ', () => {
-//   it('is a function', () => {
-//     expect(typeof ordenarAZ).toBe('function');
-//   });
-//   it('retorna la data ordenada', () => {
-//     // dado de la A la Z
-//     const mockOrder= "A-Z"
-//     // cuando
-//     const sort =ordenarAZ(mockData,mockOrder)
-//     // entonces;
-//     expect(sort.films[3].title).toBe('Zastle in the Sky')
-//   });
-// });
-
-// describe('probando ordenarZA', () => {
-//   it('is a function', () => {
-//     expect(typeof ordenarAZ).toBe('function');
-//   });
-//   it('retorna la data ordenada', () => {
-//     const mockOrder= "Z-A"
-    
-//     const sort =ordenarAZ(mockData,mockOrder)
-//     // entonces;
-//     expect(sort[0].title).toBe('My Neighbor Totoro')
-//     expect(sort[1].title).toBe("Kiki's Delivery Service")
-//     expect(sort[2].title).toBe('Grave of the Fireflies')
-//     expect(sort[3].title).toBe('Castle in the Sky')
-//   });
-// });
-
-
-
-/// Tests funciones personajes //////
 
 describe('probando obtenerDataTipo', () => {
   it('is a function', () => {
@@ -55,15 +20,61 @@ describe('probando ordenarPersonajes', () =>{
   it('is a function', () => {
     expect(typeof ordenarPersonajes).toBe('function');
   });
-  it('ordena personajes',()=>{
+  it('ordena A-Z',()=>{
     // Dado
-    const personajes = [{'name': 'B'},{'name': 'A'}]
+    const array = [{'atributo': 'B'},{'atributo': 'A'}]
     // Cuando
-    ordenarPersonajes(personajes)
+    ordenarPersonajes(array,"A-Z",'atributo')
     // Entonces
-    expect(personajes).toEqual([{'name': 'A'},{'name': 'B'}])
-  })
+    expect(array).toEqual([{'atributo': 'A'},{'atributo': 'B'}])
+  });
+  it('ordena Z-A',()=>{
+    const array = [{'atributo': 'A'},{'atributo': 'B'}]
+    ordenarPersonajes(array,"Z-A",'atributo')
+    expect(array).toEqual([{'atributo': 'B'},{'atributo': 'A'}])
+  });
+  it('ordena cronologicamente',()=>{
+    const array = [{'atributo': '2'},{'atributo': '1'}]
+    ordenarPersonajes(array,"Cronología",'atributo')
+    expect(array).toEqual([{'atributo': '1'},{'atributo': '2'}])
+  });
+  it('ordena más recientes',()=>{
+    const array = [{'atributo': '1'},{'atributo': '2'}] 
+    ordenarPersonajes(array,"Más recientes",'atributo')
+    expect(array).toEqual([{'atributo': '2'},{'atributo': '1'}])
+  });
+  it('ordena ranking más alto',()=>{
+    const array = [{'atributo': '1'},{'atributo': '2'}]
+    ordenarPersonajes(array,"Ranking más alto",'atributo')
+    expect(array).toEqual([{'atributo': '2'},{'atributo': '1'}])
+  });
+  it('ordena ranking más bajo',()=>{
+    const array = [{'atributo': '2'},{'atributo': '1'}] 
+    ordenarPersonajes(array,"Ranking más bajo",'atributo')
+    expect(array).toEqual([{'atributo': '1'},{'atributo': '2'}])
+  });
 })
+
+describe('probando filtrar', () => {
+  it('is a function', () => {
+    expect(typeof filtrar).toBe('function');
+  });
+  it('filtrar', () => {
+    const array = [{'atributo': 'B'},{'atributo': 'A'}]
+    expect(filtrar(array,'B','atributo')).toEqual([{'atributo': 'B'}]);
+  });
+})
+
+describe('probando filtrarDoble', () => {
+  it('is a function', () => {
+    expect(typeof filtrarDoble).toBe('function');
+  });
+  it('filtrarDoble', () => {
+    const array = [{'atributo1': 'B','atributo2': 'A'},{'atributo1': 'A','atributo2': 'B'}]
+    expect(filtrarDoble(array,'B','A','atributo1','atributo2')).toEqual([{'atributo1': 'B','atributo2': 'A'}]);
+  });
+})
+
 
 
 
